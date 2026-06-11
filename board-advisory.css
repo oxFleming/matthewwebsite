@@ -1,0 +1,31 @@
+﻿/* â”€â”€â”€ BOARD & ADVISORY PAGE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.ba-interests { background: var(--white); padding: clamp(60px,8vw,100px) clamp(20px,6vw,80px); }
+.ba-interests-inner { max-width: 960px; }
+.ba-interests-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1px; background: var(--gray-200); border: 1px solid var(--gray-200); margin-top: 32px; }
+.ba-interest-card { background: var(--white); padding: clamp(28px,4vw,44px); transition: background .3s; }
+.ba-interest-card:hover { background: var(--off-white); }
+.ba-interest-type { font-family: var(--font-inter); font-size: clamp(1rem,1.8vw,1.3rem); font-weight: 600; color: var(--off-black); letter-spacing: -.025em; margin-bottom: 12px; }
+.ba-interest-desc { font-family: var(--font-inter); font-size: .86rem; color: var(--gray-500); line-height: 1.72; }
+
+.ba-expertise { background: var(--off-white); padding: clamp(60px,8vw,100px) clamp(20px,6vw,80px); }
+.ba-expertise-inner { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(48px,7vw,90px); align-items: start; max-width: 1000px; }
+.ba-expertise-body { font-family: var(--font-inter); font-size: .9rem; color: var(--gray-500); line-height: 1.75; margin-top: 20px; }
+.ba-expertise-list { border-top: 1px solid var(--gray-200); }
+.ba-exp-item { font-family: var(--font-inter); font-size: clamp(.9rem,1.6vw,1.1rem); font-weight: 300; color: var(--off-black); padding: 16px 0; border-bottom: 1px solid var(--gray-200); letter-spacing: -.01em; display: flex; align-items: center; gap: 12px; }
+.ba-exp-item::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+
+.ba-why { background: var(--white); padding: clamp(60px,8vw,100px) clamp(20px,6vw,80px); }
+.ba-why-inner { max-width: 900px; }
+.ba-why-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--gray-200); border: 1px solid var(--gray-200); margin-top: 32px; }
+.ba-why-card { background: var(--white); padding: clamp(24px,3.5vw,40px); }
+.ba-why-card h3 { font-family: var(--font-inter); font-size: .96rem; font-weight: 600; color: var(--off-black); letter-spacing: -.02em; margin-bottom: 12px; }
+.ba-why-card p { font-family: var(--font-inter); font-size: .84rem; color: var(--gray-500); line-height: 1.7; }
+
+.ba-cta { background: var(--dark-section); padding: clamp(60px,8vw,100px) clamp(20px,6vw,80px); text-align: center; position: relative; overflow: hidden; }
+.ba-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 50%, rgba(61,107,158,.07) 0%, transparent 70%); pointer-events: none; }
+.ba-cta-eyebrow { display: block; font-family: var(--font-playfair); font-style: italic; font-size: clamp(.9rem,1.5vw,1.1rem); color: var(--accent); margin-bottom: 10px; position: relative; }
+.ba-cta-body { font-family: var(--font-inter); font-size: .9rem; color: rgba(255,255,255,.38); max-width: 500px; margin: 0 auto; line-height: 1.75; position: relative; }
+.btn-primary { font-family: var(--font-inter); font-size: .75rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; color: var(--white); background: var(--accent); padding: 13px 28px; border-radius: 100px; transition: all .25s var(--ease-out); display: inline-block; }
+.btn-primary:hover { background: #2f5680; transform: translateY(-2px); }
+
+@media (max-width: 768px) { .ba-interests-grid { grid-template-columns: 1fr; } .ba-expertise-inner { grid-template-columns: 1fr; } .ba-why-grid { grid-template-columns: 1fr; } }

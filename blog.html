@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | Kush Agrawal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <link rel="stylesheet" href="blog.css" />
+</head>
+<body>
+  <nav class="sub-nav">
+    <a href="index.html" class="sub-nav-logo">KUSH<span>AGRAWAL</span></a>
+    <div class="sub-nav-links">
+      <a href="index.html">Home</a><a href="about.html">About</a>
+      <a href="projects.html">Projects</a><a href="books.html">Publications</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="resume.html">Resume</a><a href="index.html#contact">Contact</a>
+    </div>
+    <button class="sub-nav-burger" id="subBurger"><span></span><span></span></button>
+  </nav>
+  <div class="side-menu" id="sideMenu">
+    <button class="side-menu-close" id="menuClose">CLOSE</button>
+    <div class="side-menu-links">
+      <a href="index.html" class="side-menu-link"><span class="side-menu-num">01</span><span class="side-menu-text">Home</span></a>
+      <a href="about.html" class="side-menu-link"><span class="side-menu-num">02</span><span class="side-menu-text">About</span></a>
+      <a href="projects.html" class="side-menu-link"><span class="side-menu-num">03</span><span class="side-menu-text">Projects</span></a>
+      <a href="books.html" class="side-menu-link"><span class="side-menu-num">04</span><span class="side-menu-text">Publications</span></a>
+      <a href="blog.html" class="side-menu-link"><span class="side-menu-num">05</span><span class="side-menu-text">Blog</span></a>
+      <a href="resume.html" class="side-menu-link"><span class="side-menu-num">06</span><span class="side-menu-text">Resume</span></a>
+      <a href="index.html#contact" class="side-menu-link"><span class="side-menu-num">07</span><span class="side-menu-text">Contact</span></a>
+    </div>
+  </div>
+
+  <div class="page-wrapper">
+
+    <!-- BANNER -->
+    <section class="page-banner">
+      <span class="page-banner-eyebrow">TECHNICAL BLOG</span>
+      <h1 class="page-banner-title">Ideas, Learnings &amp;<br/>Deep Dives</h1>
+      <p class="page-banner-sub">Sharing practical knowledge, tutorials, project breakdowns, engineering insights, and cybersecurity learnings.</p>
+      <div class="blog-stats">
+        <div class="blog-stat"><span class="blog-stat-num">1.2K+</span><span class="blog-stat-label">Views</span></div>
+        <div class="blog-stat"><span class="blog-stat-num">5</span><span class="blog-stat-label">Articles</span></div>
+        <div class="blog-stat"><span class="blog-stat-num">8 min</span><span class="blog-stat-label">Avg. Read</span></div>
+      </div>
+    </section>
+
+    <!-- FILTER TABS -->
+    <div class="blog-filters">
+      <button class="blog-filter-btn active" data-filter="all">All Posts</button>
+      <button class="blog-filter-btn" data-filter="ai">AI &amp; Machine Learning</button>
+      <button class="blog-filter-btn" data-filter="cyber">Cybersecurity</button>
+      <button class="blog-filter-btn" data-filter="web">Web Development</button>
+      <button class="blog-filter-btn" data-filter="data">Data Analytics</button>
+    </div>
+
+    <!-- MAIN + SIDEBAR LAYOUT -->
+    <div class="blog-layout">
+
+      <!-- POSTS -->
+      <main class="blog-posts">
+
+        <article class="blog-post-card fade-up" data-category="ai">
+          <div class="blog-post-img bpi-1">
+            <span class="blog-post-cat-badge">AI &amp; Machine Learning</span>
+          </div>
+          <div class="blog-post-body">
+            <div class="blog-post-meta">
+              <span class="blog-post-date">Jun 01, 2026</span>
+              <span class="blog-post-read">8 min read</span>
+            </div>
+            <h2 class="blog-post-title">How I Built GoTrip Using AI</h2>
+            <p class="blog-post-excerpt">A deep dive into the architecture and development process of GoTrip, an AI-powered travel planner built with Next.js and Gemini AI.</p>
+            <div class="blog-post-tags">
+              <span class="tag">Next.js</span>
+              <span class="tag">Gemini</span>
+              <span class="tag">API Integration</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-post-card fade-up" data-category="cyber">
+          <div class="blog-post-img bpi-2">
+            <span class="blog-post-cat-badge">Cybersecurity</span>
+          </div>
+          <div class="blog-post-body">
+            <div class="blog-post-meta">
+              <span class="blog-post-date">May 15, 2026</span>
+              <span class="blog-post-read">7 min read</span>
+            </div>
+            <h2 class="blog-post-title">Cybersecurity Internship Learnings</h2>
+            <p class="blog-post-excerpt">Key takeaways from my cybersecurity internship, including packet analysis, ethical hacking, and vulnerability assessment using Wireshark and Nmap.</p>
+            <div class="blog-post-tags">
+              <span class="tag">Ethical Hacking</span>
+              <span class="tag">Packet Analysis</span>
+              <span class="tag">Wireshark</span>
+              <span class="tag">Security</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-post-card fade-up" data-category="web">
+          <div class="blog-post-img bpi-3">
+            <span class="blog-post-cat-badge">Web Development</span>
+          </div>
+          <div class="blog-post-body">
+            <div class="blog-post-meta">
+              <span class="blog-post-date">May 01, 2026</span>
+              <span class="blog-post-read">10 min read</span>
+            </div>
+            <h2 class="blog-post-title">JWT Authentication Best Practices</h2>
+            <p class="blog-post-excerpt">A comprehensive guide to implementing secure JWT authentication in modern web applications, covering token storage, refresh strategies, and common pitfalls.</p>
+            <div class="blog-post-tags">
+              <span class="tag">Authentication</span>
+              <span class="tag">JWT</span>
+              <span class="tag">Security</span>
+              <span class="tag">Node.js</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-post-card fade-up" data-category="data">
+          <div class="blog-post-img bpi-4">
+            <span class="blog-post-cat-badge">Data Analytics</span>
+          </div>
+          <div class="blog-post-body">
+            <div class="blog-post-meta">
+              <span class="blog-post-date">Apr 10, 2026</span>
+              <span class="blog-post-read">9 min read</span>
+            </div>
+            <h2 class="blog-post-title">Data Analytics Workflow Using Python</h2>
+            <p class="blog-post-excerpt">Exploring the end-to-end data analytics workflow using Python, Pandas, and visualization tools. From raw CSV to interactive dashboards.</p>
+            <div class="blog-post-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Pandas</span>
+              <span class="tag">Data Science</span>
+              <span class="tag">Visualization</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-post-card fade-up" data-category="web">
+          <div class="blog-post-img bpi-5">
+            <span class="blog-post-cat-badge">Web Development</span>
+          </div>
+          <div class="blog-post-body">
+            <div class="blog-post-meta">
+              <span class="blog-post-date">Mar 20, 2026</span>
+              <span class="blog-post-read">8 min read</span>
+            </div>
+            <h2 class="blog-post-title">Building a Modern Next.js Portfolio</h2>
+            <p class="blog-post-excerpt">The technical decisions and optimizations behind building a high-performance Next.js portfolio with GSAP animations, Lenis smooth scroll, and Tailwind CSS.</p>
+            <div class="blog-post-tags">
+              <span class="tag">Next.js</span>
+              <span class="tag">React</span>
+              <span class="tag">Tailwind</span>
+              <span class="tag">Performance</span>
+            </div>
+          </div>
+        </article>
+
+      </main>
+
+      <!-- SIDEBAR -->
+      <aside class="blog-sidebar">
+        <div class="sidebar-widget fade-up">
+          <h3 class="sidebar-widget-title">About the Blog</h3>
+          <p class="sidebar-widget-text">This blog is where I share my learning journey, tutorials, and insights on web development, cybersecurity, data analytics, and AI.</p>
+          <a href="about.html" class="sidebar-link">Learn more about me &rarr;</a>
+        </div>
+
+        <div class="sidebar-widget fade-up">
+          <h3 class="sidebar-widget-title">Categories</h3>
+          <div class="sidebar-cats">
+            <button class="sidebar-cat-btn" data-filter="ai">AI &amp; Machine Learning</button>
+            <button class="sidebar-cat-btn" data-filter="cyber">Cybersecurity</button>
+            <button class="sidebar-cat-btn" data-filter="web">Web Development</button>
+            <button class="sidebar-cat-btn" data-filter="data">Data Analytics</button>
+          </div>
+        </div>
+
+        <div class="sidebar-widget fade-up">
+          <h3 class="sidebar-widget-title">Newsletter</h3>
+          <p class="sidebar-widget-text">Get notified when I publish new articles.</p>
+          <div class="sidebar-newsletter">
+            <input type="email" class="sidebar-email" placeholder="Enter your email" />
+            <button class="sidebar-subscribe-btn">Subscribe</button>
+          </div>
+          <p class="sidebar-newsletter-note">No spam. Unsubscribe anytime.</p>
+        </div>
+
+        <div class="sidebar-widget fade-up">
+          <h3 class="sidebar-widget-title">Popular Tags</h3>
+          <div class="sidebar-tags">
+            <span class="tag">Next.js</span><span class="tag">Gemini</span>
+            <span class="tag">API Integration</span><span class="tag">Ethical Hacking</span>
+            <span class="tag">Packet Analysis</span><span class="tag">Wireshark</span>
+            <span class="tag">Security</span><span class="tag">Authentication</span>
+            <span class="tag">JWT</span><span class="tag">Node.js</span>
+            <span class="tag">Python</span><span class="tag">Pandas</span>
+            <span class="tag">Data Science</span><span class="tag">React</span>
+            <span class="tag">Tailwind</span><span class="tag">Performance</span>
+          </div>
+        </div>
+      </aside>
+
+    </div><!-- /blog-layout -->
+
+    <!-- BOTTOM NAV -->
+    <section class="page-nav-strip">
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="books.html">Publications</a>
+      <a href="resume.html">Resume</a>
+      <a href="index.html#contact">Contact</a>
+    </section>
+  </div>
+
+  <footer class="sub-footer">
+    <div class="sub-footer-inner">
+      <span>Version: Next.js '26 Edition &nbsp;|&nbsp; Location: Raipur, India</span>
+      <div class="sub-footer-links"><a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Disclaimer</a></div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="subpage.js"></script>
+  <script>
+    // Blog filter logic
+    document.querySelectorAll('.blog-filter-btn, .sidebar-cat-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.blog-filter-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === filter));
+        document.querySelectorAll('.blog-post-card').forEach(card => {
+          const show = filter === 'all' || card.dataset.category === filter;
+          gsap.to(card, { opacity: show ? 1 : 0.2, scale: show ? 1 : 0.97, duration: 0.35, ease: 'power2.out' });
+          card.style.pointerEvents = show ? 'auto' : 'none';
+        });
+      });
+    });
+  </script>
+</body>
+</html>
