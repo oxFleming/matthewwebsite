@@ -149,4 +149,9 @@
 .btn-outline:hover { color: var(--white); border-color: rgba(255,255,255,.5); }
 
 @media (max-width: 900px) { .contact-main-inner { grid-template-columns: 1fr; } .faq-grid { grid-template-columns: 1fr; } }
-@media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+@media (max-width: 600px) {
+  .form-row { grid-template-columns: 1fr; }
+  /* 16px floor prevents iOS auto-zoom on focused inputs */
+  .form-input, .form-select, .form-textarea { font-size: 16px; }
+  .form-submit { width: 100%; }
+}

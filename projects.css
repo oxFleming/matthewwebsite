@@ -299,3 +299,6 @@
   .proj-item-num { display: none; }
   .proj-item-result { text-align: left; }
 }
+@media (max-width: 480px) {
+  .proj-metrics-grid { grid-template-columns: 1fr; }
+}

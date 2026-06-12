@@ -74,7 +74,8 @@
       var corner = CORNERS[idx % CORNERS.length];
       Object.keys(corner).forEach(function (k) { wrap.style[k] = corner[k]; });
 
-      wrap.style.width = SIZES[idx % SIZES.length] + 'px';
+      var mobileScale = window.innerWidth <= 768 ? 0.6 : 1;
+      wrap.style.width = Math.round(SIZES[idx % SIZES.length] * mobileScale) + 'px';
       wrap.style.setProperty('--rot', ROTS[idx % ROTS.length] + 'deg');
       wrap.style.setProperty('--dur', (8 + (idx % 5) * 1.4) + 's');
       wrap.innerHTML = TEMPLATES[idx % TEMPLATES.length];
@@ -88,7 +89,7 @@
         mini.setAttribute('aria-hidden', 'true');
         var op = CORNERS[(idx + 2) % CORNERS.length];
         Object.keys(op).forEach(function (k) { mini.style[k] = op[k]; });
-        mini.style.width = '84px';
+        mini.style.width = Math.round(84 * mobileScale) + 'px';
         mini.style.opacity = '0.7';
         mini.style.setProperty('--rot', ROTS[(idx + 3) % ROTS.length] + 'deg');
         mini.style.setProperty('--dur', (10 + (idx % 4)) + 's');

@@ -353,6 +353,23 @@
   .fgip-facts-bar { flex-wrap: wrap; }
   .fgip-fact { flex: 1 1 40%; }
 }
+@media (max-width: 768px) {
+  /* Pinned horizontal scroll is disabled on mobile (see fgip.html) — swipe natively instead */
+  .fgip-collections-section { min-height: auto; padding-bottom: clamp(40px,8vw,60px); }
+  .fgip-collections-track {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 24px;
+    margin: 0 -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .fgip-collection-card { width: min(82vw, 340px); scroll-snap-align: center; }
+  .fgip-fact { flex: 1 1 100%; }
+  .fgip-hero-actions { flex-wrap: wrap; }
+}
+
 @media (max-width: 600px) {
   .fgip-amenities-grid { grid-template-columns: 1fr; }
 }

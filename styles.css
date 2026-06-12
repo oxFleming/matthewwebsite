@@ -1445,16 +1445,31 @@ body::after {
   .contact-grid { grid-template-columns: 1fr; gap: 24px; }
   .career-item { grid-template-columns: 1fr; gap: 8px; }
   .career-date { display: none; }
+  .career-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .value-header { flex-direction: column; align-items: flex-start; gap: 16px; }
   .opportunity-inner { flex-direction: column; align-items: flex-start; }
   .footer-inner { flex-direction: column; align-items: flex-start; }
+  .footer-right { flex-wrap: wrap; gap: 14px 18px; }
+  .fgip-teaser-visual { gap: 12px; }
+  .hero-headline { max-width: 100%; }
+  .hero-marquee-track span { font-size: 0.68rem; padding: 0 16px; }
 }
 
 @media (max-width: 480px) {
   .hero-title, .hero-title-outline { font-size: clamp(3.2rem,15vw,5rem); }
+  .hero-inner { padding: 84px 16px 24px; }
+  .hero-headline { font-size: 1.2rem; }
+  .hero-actions { width: 100%; }
+  .hero-actions .cta-magnetic { width: 100%; }
+  .hero-cta-primary, .hero-cta-secondary { display: block; text-align: center; width: 100%; }
+  .hero-photo-frame { width: clamp(180px, 56vw, 260px); }
+  .hero-photo { box-shadow: 8px 8px 0 var(--accent); }
   .contact-title { font-size: clamp(4rem,18vw,8rem); }
   .metrics-grid { grid-template-columns: 1fr; }
   .expertise-grid { grid-template-columns: 1fr; }
   .fgip-teaser-visual { grid-template-columns: 1fr 1fr; }
+  .metrics-section, .value-section, .career-section, .projects-section,
+  .expertise-section, .positioning-section, .opportunity-section { padding-left: 16px; padding-right: 16px; }
 }
 
 /* ─── ILLUSTRATION DECORATIONS ─────────────────────────────── */

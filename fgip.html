@@ -289,19 +289,21 @@ window.addEventListener('DOMContentLoaded', () => {
   const track = document.getElementById('collectionsTrack');
   if (!track || !gsap || !ScrollTrigger) return;
   const cards = track.querySelectorAll('.fgip-collection-card');
-  const totalWidth = track.scrollWidth - track.offsetWidth;
-  gsap.to(track, {
-    x: -totalWidth,
-    ease: 'none',
-    scrollTrigger: {
-      trigger: '.fgip-collections-section',
-      start: 'top top',
-      end: () => `+=${totalWidth + window.innerWidth}`,
-      pin: true,
-      scrub: 1,
-      anticipatePin: 1,
-    }
-  });
+  if (window.innerWidth > 768) {
+    const totalWidth = track.scrollWidth - track.offsetWidth;
+    gsap.to(track, {
+      x: -totalWidth,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.fgip-collections-section',
+        start: 'top top',
+        end: () => `+=${totalWidth + window.innerWidth}`,
+        pin: true,
+        scrub: 1,
+        anticipatePin: 1,
+      }
+    });
+  }
   gsap.from(cards, {
     opacity: 0, y: 40,
     duration: .8, ease: 'power3.out', stagger: .15,
