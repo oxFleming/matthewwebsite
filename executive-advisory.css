@@ -25,8 +25,35 @@
 .adv-outcomes-label { font-family: var(--font-inter); font-size: .6rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin-bottom: 5px; }
 .adv-outcomes-list { font-family: var(--font-inter); font-size: .76rem; color: var(--gray-600); line-height: 1.5; }
 
+.adv-hero-positioning {
+  font-family: var(--font-inter);
+  font-size: .66rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-top: 22px;
+}
+
 .adv-who { background: var(--off-white); padding: clamp(60px,8vw,100px) clamp(20px,6vw,80px); }
-.adv-who-inner { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px,6vw,80px); align-items: start; }
+.adv-who-inner { display: grid; grid-template-columns: 1fr 2fr; gap: clamp(40px,6vw,80px); align-items: start; }
+
+.adv-who-groups { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(20px,3vw,36px); }
+.adv-who-group-title { font-family: var(--font-bebas); font-size: clamp(1.15rem,1.8vw,1.45rem); letter-spacing: .04em; margin-bottom: 12px; padding-bottom: 9px; border-bottom: 1px solid var(--gray-200); }
+.adv-who-group-list { list-style: none; }
+.adv-who-group-list li { font-family: var(--font-inter); font-size: .86rem; font-weight: 300; color: var(--off-black); padding: 8px 0; border-bottom: 1px solid var(--gray-100); }
+
+.adv-why { background: var(--white); padding: clamp(60px,8vw,100px) clamp(20px,6vw,80px); }
+.adv-why-inner { display: grid; grid-template-columns: 1fr 1.4fr; gap: clamp(40px,6vw,80px); align-items: start; }
+.adv-why-list { border-top: 1px solid var(--gray-200); }
+.adv-why-item { display: flex; align-items: baseline; gap: 18px; font-family: var(--font-inter); font-size: clamp(.92rem,1.6vw,1.15rem); font-weight: 300; color: var(--off-black); padding: 18px 0; border-bottom: 1px solid var(--gray-200); letter-spacing: -0.01em; }
+.adv-why-num { font-family: var(--font-bebas); font-size: .9rem; letter-spacing: .1em; color: var(--orange); flex-shrink: 0; }
+.adv-why-item:nth-child(4n+2) .adv-why-num { color: var(--accent); }
+.adv-why-item:nth-child(4n+3) .adv-why-num { color: var(--green); }
+.adv-why-item:nth-child(4n+4) .adv-why-num { color: var(--purple); }
+
+.adv-testimonials { background: var(--wash-cream); padding: clamp(50px,7vw,80px) clamp(20px,6vw,80px); text-align: center; }
+.adv-testimonial-placeholder { font-family: var(--font-playfair); font-style: italic; font-size: clamp(1rem,1.8vw,1.3rem); color: var(--gray-400); margin: 14px auto 0; }
 .adv-who-left { padding-top: 4px; }
 .adv-who-list { border-top: 1px solid var(--gray-200); margin-top: 0; }
 .adv-who-item { font-family: var(--font-inter); font-size: clamp(.95rem,1.8vw,1.25rem); font-weight: 300; color: var(--off-black); padding: 16px 0; border-bottom: 1px solid var(--gray-200); letter-spacing: -0.02em; transition: color .2s, padding-left .2s; }
@@ -50,5 +77,5 @@
 .btn-outline { font-family: var(--font-inter); font-size: .75rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; text-decoration: none; color: rgba(255,255,255,.6); border: 1px solid rgba(255,255,255,.2); padding: 13px 26px; border-radius: 100px; transition: all .25s var(--ease-out); display: inline-block; }
 .btn-outline:hover { color: var(--white); border-color: rgba(255,255,255,.5); }
 
-@media (max-width: 900px) { .adv-services-grid { grid-template-columns: repeat(2,1fr); } .adv-models-grid { grid-template-columns: repeat(2,1fr); } .adv-who-inner { grid-template-columns: 1fr; } }
-@media (max-width: 600px) { .adv-services-grid { grid-template-columns: 1fr; } .adv-models-grid { grid-template-columns: 1fr; } }
+@media (max-width: 900px) { .adv-services-grid { grid-template-columns: repeat(2,1fr); } .adv-models-grid { grid-template-columns: repeat(2,1fr); } .adv-who-inner { grid-template-columns: 1fr; } .adv-why-inner { grid-template-columns: 1fr; gap: 28px; } }
+@media (max-width: 600px) { .adv-services-grid { grid-template-columns: 1fr; } .adv-models-grid { grid-template-columns: 1fr; } .adv-who-groups { grid-template-columns: 1fr; gap: 20px; } }
