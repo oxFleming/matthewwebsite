@@ -149,7 +149,7 @@
     </div>
     <div class="fgip-collections-track" id="collectionsTrack">
       <div class="fgip-collection-card">
-        <img src="fgip-kings.webp" alt="Kings Court Villa rendering" class="fgip-coll-img" loading="lazy"/>
+        <img src="fgip-kings.webp" alt="Kings Court Villa rendering" class="fgip-coll-img" width="720" height="405"/>
         <div class="fgip-coll-num">01</div>
         <h3 class="fgip-coll-title">Kings Court Villa</h3>
         <div class="fgip-coll-size">6-Bedroom Luxury Villas</div>
@@ -163,7 +163,7 @@
         </ul>
       </div>
       <div class="fgip-collection-card">
-        <img src="fgip-supreme.webp" alt="Supreme Court Villa rendering" class="fgip-coll-img" loading="lazy"/>
+        <img src="fgip-supreme.webp" alt="Supreme Court Villa rendering" class="fgip-coll-img" width="720" height="405"/>
         <div class="fgip-coll-num">02</div>
         <h3 class="fgip-coll-title">Supreme Court Villa</h3>
         <div class="fgip-coll-size">5-Bedroom Executive Villas</div>
@@ -176,7 +176,7 @@
         </ul>
       </div>
       <div class="fgip-collection-card">
-        <img src="fgip-lakeshore.webp" alt="Lake Shore Villa Court rendering" class="fgip-coll-img" loading="lazy"/>
+        <img src="fgip-lakeshore.webp" alt="Lake Shore Villa Court rendering" class="fgip-coll-img" width="720" height="405"/>
         <div class="fgip-coll-num">03</div>
         <h3 class="fgip-coll-title">Lake Shore Villa Court</h3>
         <div class="fgip-coll-size">4-Bedroom Family Villas</div>
@@ -189,7 +189,7 @@
         </ul>
       </div>
       <div class="fgip-collection-card">
-        <img src="fgip-senior.webp" alt="Senior Sky Court Villa rendering" class="fgip-coll-img" loading="lazy"/>
+        <img src="fgip-senior.webp" alt="Senior Sky Court Villa rendering" class="fgip-coll-img" width="720" height="405"/>
         <div class="fgip-coll-num">04</div>
         <h3 class="fgip-coll-title">Senior Sky Court Villa</h3>
         <div class="fgip-coll-size">3-Bedroom Active Adult Residences</div>
@@ -408,20 +408,33 @@ window.addEventListener('DOMContentLoaded', () => {
   const track = document.getElementById('collectionsTrack');
   if (!track || !gsap || !ScrollTrigger) return;
   const cards = track.querySelectorAll('.fgip-collection-card');
-  if (window.innerWidth > 768) {
-    const totalWidth = track.scrollWidth - track.offsetWidth;
+  const collSection = document.querySelector('.fgip-collections-section');
+  // Pinning a section taller than the viewport causes a visible jump at both
+  // pin boundaries — only pin when the section fully fits on screen.
+  const sectionFits = collSection.offsetHeight <= window.innerHeight + 24;
+  if (window.innerWidth > 768 && sectionFits) {
+    const getDistance = () => track.scrollWidth - track.offsetWidth;
     gsap.to(track, {
-      x: -totalWidth,
+      x: () => -getDistance(),
       ease: 'none',
       scrollTrigger: {
         trigger: '.fgip-collections-section',
         start: 'top top',
-        end: () => `+=${totalWidth + window.innerWidth}`,
+        end: () => `+=${getDistance() + window.innerWidth}`,
         pin: true,
         scrub: 1,
         anticipatePin: 1,
+        invalidateOnRefresh: true,
       }
     });
+    // Lazy-loaded card images change the track geometry after init —
+    // recalc pin distances once they finish loading, and on full page load.
+    track.querySelectorAll('img').forEach(img => {
+      if (!img.complete) img.addEventListener('load', () => ScrollTrigger.refresh(), { once: true });
+    });
+    window.addEventListener('load', () => ScrollTrigger.refresh());
+  } else {
+    collSection.classList.add('fgip-coll-static');
   }
   gsap.from(cards, {
     opacity: 0, y: 40,

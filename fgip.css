@@ -165,19 +165,18 @@
 /* COLLECTIONS HORIZONTAL SCROLL */
 .fgip-collections-section {
   background: var(--dark-section);
-  padding: clamp(60px,8vw,100px) clamp(20px,6vw,80px) 0;
+  padding: clamp(40px,5vw,64px) clamp(20px,6vw,80px) 0;
   overflow: hidden;
-  min-height: 100dvh;
   display: flex;
   flex-direction: column;
 }
 
-.fgip-collections-header { margin-bottom: clamp(36px,5vw,56px); }
+.fgip-collections-header { margin-bottom: clamp(20px,3vw,32px); }
 
 .fgip-collections-track {
   display: flex;
   gap: 20px;
-  padding-bottom: 60px;
+  padding-bottom: 40px;
   will-change: transform;
 }
 
@@ -187,10 +186,10 @@
   background: rgba(255,255,255,.04);
   border: 1px solid rgba(255,255,255,.08);
   border-radius: 18px;
-  padding: clamp(28px,4vw,48px);
+  padding: clamp(24px,3vw,36px);
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
   transition: border-color .3s;
 }
 
@@ -431,12 +430,23 @@
 
 /* COLLECTION CARD IMAGE */
 .fgip-coll-img {
-  width: calc(100% + 2 * clamp(28px,4vw,48px));
-  margin: calc(-1 * clamp(28px,4vw,48px)) calc(-1 * clamp(28px,4vw,48px)) 4px;
-  height: 200px; object-fit: cover;
+  width: calc(100% + 2 * clamp(24px,3vw,36px));
+  margin: calc(-1 * clamp(24px,3vw,36px)) calc(-1 * clamp(24px,3vw,36px)) 4px;
+  height: clamp(110px, 15vh, 180px); object-fit: cover;
   border-radius: 17px 17px 0 0;
   display: block;
 }
+
+/* Static fallback when the section is taller than the viewport (no pin) —
+   behaves like the mobile swipe track */
+.fgip-coll-static { min-height: auto; padding-bottom: clamp(40px,6vw,60px); }
+.fgip-coll-static .fgip-collections-track {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 24px;
+}
+.fgip-coll-static .fgip-collection-card { scroll-snap-align: center; }
 
 /* COMMUNITY RENDERINGS GALLERY */
 .fgip-gallery { background: var(--off-white); padding: clamp(60px,8vw,100px) clamp(20px,6vw,80px); }
