@@ -125,13 +125,23 @@ body::after {
 .nav > * { pointer-events: auto; }
 
 .nav-logo {
-  font-family: var(--font-bebas);
-  font-size: 1.4rem;
-  letter-spacing: 0.12em;
-  color: var(--white);
+  display: flex;
+  align-items: center;
   text-decoration: none;
   cursor: pointer;
   line-height: 1;
+}
+
+/* The .nav uses mix-blend-mode:difference, so the white-on-black logo
+   adapts to whatever scrolls behind it — no extra blend needed here. */
+.nav-logo-img {
+  height: 46px;
+  width: auto;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .nav-logo-img { height: 38px; }
 }
 
 .nav-links {
@@ -1334,7 +1344,20 @@ body::after {
 .footer-left {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 12px;
+}
+
+.footer-logo-img {
+  height: 110px;
+  width: auto;
+  align-self: flex-start; /* prevent the column flex from stretching the square logo */
+  display: block;
+  /* white-on-black art; screen blend drops the black on the navy footer */
+  mix-blend-mode: screen;
+}
+
+@media (max-width: 768px) {
+  .footer-logo-img { height: 92px; }
 }
 
 .footer-name {

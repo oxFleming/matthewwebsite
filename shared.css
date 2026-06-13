@@ -104,23 +104,18 @@ body::after {
 }
 
 .sub-nav-logo {
-  font-family: var(--font-bebas);
-  font-size: 1.3rem;
-  letter-spacing: 0.15em;
-  color: var(--white);
+  display: flex;
+  align-items: center;
   text-decoration: none;
   line-height: 1;
 }
 
-.sub-nav-logo span {
+.sub-nav-logo-img {
+  height: 42px;
+  width: auto;
   display: block;
-  font-size: 0.5rem;
-  letter-spacing: 0.25em;
-  color: var(--accent);
-  margin-top: 2px;
-  font-family: var(--font-inter);
-  font-weight: 600;
-  text-transform: uppercase;
+  /* logo art is white-on-black; screen blend drops the black on the navy nav */
+  mix-blend-mode: screen;
 }
 
 .sub-nav-links {
@@ -453,7 +448,16 @@ body::after {
   flex-wrap: wrap;
 }
 
-.sub-footer-brand { display: flex; flex-direction: column; gap: 3px; }
+.sub-footer-brand { display: flex; flex-direction: column; gap: 12px; }
+
+.sub-footer-logo-img {
+  height: 110px;
+  width: auto;
+  align-self: flex-start; /* prevent the column flex from stretching the square logo */
+  display: block;
+  /* white-on-black art; screen blend drops the black on the navy footer */
+  mix-blend-mode: screen;
+}
 
 .sub-footer-name {
   font-family: var(--font-bebas);
@@ -525,6 +529,8 @@ body::after {
 img { max-width: 100%; height: auto; }
 
 @media (max-width: 768px) {
+  .sub-nav-logo-img { height: 36px; }
+  .sub-footer-logo-img { height: 92px; }
   .side-menu-close { right: 20px; }
   .side-menu { padding: 0 24px; }
   .back-link { margin-bottom: 32px; }
