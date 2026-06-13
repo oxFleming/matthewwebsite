@@ -688,9 +688,27 @@ body::after {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: clamp(48px,6vw,72px);
+  margin-bottom: clamp(24px,3vw,32px);
   position: relative;
 }
+
+.value-intro {
+  font-family: var(--font-inter);
+  font-size: clamp(0.9rem, 1.4vw, 1.02rem);
+  color: rgba(255,255,255,0.5);
+  line-height: 1.6;
+  max-width: 540px;
+  margin-bottom: clamp(36px,5vw,52px);
+  position: relative;
+}
+
+.value-card-cta { display: flex; flex-direction: column; justify-content: center; }
+.value-card-cta .value-card-title a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: letter-spacing 0.2s;
+}
+.value-card-cta .value-card-title a:hover { letter-spacing: 0.02em; }
 
 .value-title {
   font-family: var(--font-bebas);
