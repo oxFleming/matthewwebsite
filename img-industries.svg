@@ -1,0 +1,39 @@
+<svg viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgI" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eef3f9"/>
+      <stop offset="1" stop-color="#dce7f4"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#bgI)"/>
+  <!-- globe -->
+  <g transform="translate(320,185)">
+    <circle r="118" fill="none" stroke="#0466e8" stroke-width="2.5" opacity="0.55"/>
+    <ellipse rx="118" ry="44" fill="none" stroke="#0466e8" stroke-width="2" opacity="0.32"/>
+    <ellipse rx="62" ry="118" fill="none" stroke="#0466e8" stroke-width="2" opacity="0.32"/>
+    <line x1="-118" y1="0" x2="118" y2="0" stroke="#0466e8" stroke-width="2" opacity="0.32"/>
+  </g>
+  <!-- network nodes + links -->
+  <g stroke="#16283f" stroke-width="2" opacity="0.28">
+    <line x1="150" y1="90" x2="320" y2="120"/>
+    <line x1="320" y1="120" x2="500" y2="80"/>
+    <line x1="150" y1="90" x2="120" y2="250"/>
+    <line x1="500" y1="80" x2="520" y2="250"/>
+    <line x1="120" y1="250" x2="320" y2="300"/>
+    <line x1="320" y1="300" x2="520" y2="250"/>
+    <line x1="320" y1="120" x2="320" y2="300"/>
+  </g>
+  <g>
+    <circle cx="150" cy="90" r="13" fill="#0466e8"/>
+    <circle cx="500" cy="80" r="16" fill="#ffb400"/>
+    <circle cx="120" cy="250" r="14" fill="#ff5c00"/>
+    <circle cx="520" cy="250" r="12" fill="#1fa63c"/>
+    <circle cx="320" cy="300" r="15" fill="#b65cf0"/>
+    <circle cx="320" cy="120" r="10" fill="#16283f"/>
+  </g>
+  <!-- upward growth arrow -->
+  <g transform="translate(390,150)" stroke="#16283f" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.85">
+    <path d="M0 70 L34 30 L60 52 L104 -2"/>
+    <path d="M84 -4 L106 -4 L106 18"/>
+  </g>
+</svg>

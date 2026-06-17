@@ -1,0 +1,30 @@
+<svg viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgH" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fdf3dc"/>
+      <stop offset="1" stop-color="#f7e7c4"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#bgH)"/>
+  <!-- connecting circles motif -->
+  <circle cx="200" cy="180" r="92" fill="none" stroke="#ffb400" stroke-width="3" opacity="0.45"/>
+  <circle cx="440" cy="180" r="92" fill="none" stroke="#ff5c00" stroke-width="3" opacity="0.45"/>
+  <!-- handshake, simplified flat -->
+  <g stroke="#16283f" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" fill="#16283f">
+    <!-- left sleeve -->
+    <path d="M70 250 L150 210 L208 238 L150 280 Z" fill="#0466e8" stroke="#0466e8"/>
+    <!-- right sleeve -->
+    <path d="M570 250 L490 210 L432 238 L490 280 Z" fill="#1fa63c" stroke="#1fa63c"/>
+    <!-- left forearm/hand -->
+    <path d="M150 222 L300 188 L330 200 L300 232 L210 252 Z" fill="#f5efe5" stroke="#16283f" stroke-width="5"/>
+    <!-- right forearm/hand -->
+    <path d="M490 222 L340 188 L310 200 L340 232 L430 252 Z" fill="#ffffff" stroke="#16283f" stroke-width="5"/>
+    <!-- clasp -->
+    <rect x="296" y="184" width="48" height="52" rx="12" fill="#ffb400" stroke="#16283f" stroke-width="5"/>
+    <!-- fingers hint -->
+    <path d="M306 196 L334 196 M306 210 L334 210 M306 224 L334 224" stroke="#16283f" stroke-width="3" fill="none"/>
+  </g>
+  <!-- accent dots -->
+  <circle cx="320" cy="92" r="9" fill="#ff5c00"/>
+  <circle cx="320" cy="284" r="7" fill="#0466e8"/>
+</svg>

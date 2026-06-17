@@ -1,0 +1,40 @@
+<svg viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgC" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fdf0e8"/>
+      <stop offset="1" stop-color="#fbe0d2"/>
+    </linearGradient>
+    <linearGradient id="fillC" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ff5c00" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#ff5c00" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#bgC)"/>
+  <!-- axes -->
+  <line x1="70" y1="60" x2="70" y2="300" stroke="#16283f" stroke-width="2.5" opacity="0.4"/>
+  <line x1="70" y1="300" x2="590" y2="300" stroke="#16283f" stroke-width="2.5" opacity="0.4"/>
+  <!-- gridlines -->
+  <g stroke="#16283f" stroke-width="1" opacity="0.12">
+    <line x1="70" y1="240" x2="590" y2="240"/>
+    <line x1="70" y1="180" x2="590" y2="180"/>
+    <line x1="70" y1="120" x2="590" y2="120"/>
+  </g>
+  <!-- recovery dip-then-climb area -->
+  <path d="M70 250 L160 268 L250 230 L340 200 L430 140 L520 92 L520 300 L70 300 Z" fill="url(#fillC)"/>
+  <!-- trajectory line: dips (recovery) then strong climb -->
+  <path d="M70 250 L160 268 L250 230 L340 200 L430 140 L520 92" fill="none" stroke="#ff5c00" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- data points -->
+  <g fill="#16283f">
+    <circle cx="70" cy="250" r="7"/>
+    <circle cx="160" cy="268" r="7" fill="#b65cf0"/>
+    <circle cx="250" cy="230" r="7"/>
+    <circle cx="340" cy="200" r="7" fill="#0466e8"/>
+    <circle cx="430" cy="140" r="7"/>
+    <circle cx="520" cy="92" r="9" fill="#1fa63c"/>
+  </g>
+  <!-- upward arrow head at end -->
+  <g transform="translate(520,92)" stroke="#1fa63c" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-2 -2 L40 -34"/>
+    <path d="M20 -34 L42 -34 L42 -12"/>
+  </g>
+</svg>
