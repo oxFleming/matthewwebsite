@@ -48,40 +48,47 @@
       <!-- LEFT: FORM -->
       <div class="contact-form-side">
         <h2 class="contact-form-heading">Send a Message</h2>
-        <form class="contact-form" id="contact-form" novalidate>
+        <form class="contact-form" id="contact-form">
+          <!-- Web3Forms config -->
+          <input type="hidden" name="access_key" value="13d335cc-ed94-4fa8-bbe4-289925bdaaef"/>
+          <input type="hidden" name="subject" value="New inquiry — matthewkalesanwo.com"/>
+          <input type="hidden" name="from_name" value="Matthew Kalesanwo Website"/>
+          <!-- Honeypot spam filter (hidden from humans) -->
+          <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off"/>
+
           <div class="form-row">
             <div class="form-group">
               <label class="form-label">First Name</label>
-              <input type="text" class="form-input" placeholder="First name" required/>
+              <input type="text" name="first_name" class="form-input" placeholder="First name" required/>
             </div>
             <div class="form-group">
               <label class="form-label">Last Name</label>
-              <input type="text" class="form-input" placeholder="Last name" required/>
+              <input type="text" name="last_name" class="form-input" placeholder="Last name" required/>
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
               <label class="form-label">Company</label>
-              <input type="text" class="form-input" placeholder="Your organization"/>
+              <input type="text" name="company" class="form-input" placeholder="Your organization"/>
             </div>
             <div class="form-group">
               <label class="form-label">Title</label>
-              <input type="text" class="form-input" placeholder="Your title or role"/>
+              <input type="text" name="title" class="form-input" placeholder="Your title or role"/>
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
               <label class="form-label">Email Address</label>
-              <input type="email" class="form-input" placeholder="your@email.com" required/>
+              <input type="email" name="email" class="form-input" placeholder="your@email.com" required/>
             </div>
             <div class="form-group">
               <label class="form-label">Phone Number</label>
-              <input type="tel" class="form-input" placeholder="+1 (---) --- ----"/>
+              <input type="tel" name="phone" class="form-input" placeholder="+1 (---) --- ----"/>
             </div>
           </div>
           <div class="form-group">
             <label class="form-label">Inquiry Type</label>
-            <select class="form-select">
+            <select class="form-select" name="inquiry_type">
               <option value="" disabled selected>Select inquiry type</option>
               <option>Executive Opportunity</option>
               <option>Advisory Engagement</option>
@@ -95,13 +102,14 @@
           </div>
           <div class="form-group">
             <label class="form-label">Subject</label>
-            <input type="text" class="form-input" placeholder="Brief subject line"/>
+            <input type="text" name="user_subject" class="form-input" placeholder="Brief subject line"/>
           </div>
           <div class="form-group">
             <label class="form-label">Message</label>
-            <textarea class="form-textarea" placeholder="Please share context about your inquiry, objective, or opportunity. The more detail you provide, the more productive our initial conversation will be." rows="6"></textarea>
+            <textarea class="form-textarea" name="message" placeholder="Please share context about your inquiry, objective, or opportunity. The more detail you provide, the more productive our initial conversation will be." rows="6" required></textarea>
           </div>
           <button type="submit" class="form-submit">Send Message</button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
         </form>
       </div>
 
@@ -190,13 +198,65 @@
 <script src="subpage.js"></script>
 <script src="decor.js"></script>
 <script>
-document.querySelector('.contact-form')?.addEventListener('submit', e => {
-  e.preventDefault();
-  const btn = e.target.querySelector('.form-submit');
-  btn.textContent = 'Message Sent';
-  btn.style.background = '#2d6a42';
-  setTimeout(() => { btn.textContent = 'Send Message'; btn.style.background = ''; }, 3000);
-});
+(function () {
+  const form = document.getElementById('contact-form');
+  if (!form) return;
+  const btn = form.querySelector('.form-submit');
+  const status = document.getElementById('formStatus');
+  const defaultLabel = btn.textContent;
+
+  function setStatus(msg, type) {
+    status.textContent = msg;
+    status.className = 'form-status' + (type ? ' form-status-' + type : '');
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    setStatus('', '');
+
+    // Lightweight required-field validation
+    const required = ['first_name', 'last_name', 'email', 'message'];
+    for (const n of required) {
+      const field = form.elements[n];
+      if (!field || !field.value.trim()) {
+        setStatus('Please fill in your name, email, and message.', 'error');
+        field && field.focus();
+        return;
+      }
+    }
+    const email = form.elements['email'].value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setStatus('Please enter a valid email address.', 'error');
+      form.elements['email'].focus();
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: new FormData(form)
+      });
+      const data = await res.json();
+      if (data.success) {
+        btn.textContent = 'Message Sent';
+        btn.style.background = '#2d6a42';
+        setStatus('Thank you — your message has been sent. Matthew will be in touch shortly.', 'success');
+        form.reset();
+        setTimeout(() => { btn.textContent = defaultLabel; btn.style.background = ''; btn.disabled = false; }, 4000);
+      } else {
+        throw new Error(data.message || 'Submission failed');
+      }
+    } catch (err) {
+      btn.textContent = defaultLabel;
+      btn.disabled = false;
+      setStatus('Something went wrong. Please try again, or email info@matthewkalesanwo.com directly.', 'error');
+    }
+  });
+})();
 </script>
 </body>
 </html>

@@ -77,6 +77,17 @@
 }
 
 .form-submit:hover { background: #2f5680; transform: translateY(-2px); }
+.form-submit:disabled { opacity: .7; cursor: default; transform: none; }
+
+.form-status {
+  font-family: var(--font-inter);
+  font-size: .82rem;
+  line-height: 1.55;
+  margin-top: 14px;
+  min-height: 1em;
+}
+.form-status-success { color: #2d6a42; }
+.form-status-error { color: #c0392b; }
 
 /* INFO SIDE */
 .contact-info-side { display: flex; flex-direction: column; gap: 24px; }
